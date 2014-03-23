@@ -1,13 +1,14 @@
 AutoItSetOption ("SendKeyDelay", 1)
 AutoItSetOption ("SendKeyDownDelay", 2)
+AutoItSetOption ("SendAttachMode", 1)
 
 Local $i = 0
 Local $keys = ""
 
-WinWaitActive("Deus Ex: The Fall")
+WinWaitActive("[CLASS:UnityWndClass]")
 
-While $i <= 9999
-	$keys = StringFormat("%04d", $i) & "{BACKSPACE}{BACKSPACE}{BACKSPACE}{BACKSPACE}";
+While $i <= 5
+	$keys = StringFormat("%04d", $i) & "{BACKSPACE 4}"
 	Send($keys)
 
 	If (Mod($i, 50) = 0) Then
@@ -15,7 +16,7 @@ While $i <= 9999
 		ConsoleWrite("Keyspace Covered: " & Round($progress, 0) & "%" & @CRLF)
 	EndIf
 
-	If(WinActive("Deus Ex: The Fall") = 0) Then
+	If(WinActive("[CLASS:UnityWndClass]") = 0) Then
 		ExitLoop
 	EndIf
 
