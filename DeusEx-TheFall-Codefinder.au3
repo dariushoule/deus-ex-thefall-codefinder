@@ -7,7 +7,7 @@ Local $keys = ""
 
 WinWaitActive("[CLASS:UnityWndClass]")
 
-While $i <= 5
+While $i <= 9999
 	$keys = StringFormat("%04d", $i) & "{BACKSPACE 4}"
 	Send($keys)
 
